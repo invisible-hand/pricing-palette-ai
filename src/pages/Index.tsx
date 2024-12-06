@@ -36,8 +36,6 @@ const Index = () => {
         "Everything in Monthly plan",
         "Lifetime updates",
         "Early access to new features",
-        "Personal career coach consultation",
-        "Custom branding options",
       ],
       popular: false,
     },
@@ -61,10 +59,10 @@ const Index = () => {
           Pricing Plans
         </span>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
-          Choose Your Resume Enhancement Plan
+          Elevate Your Career with AI-Powered Resumes
         </h1>
         <p className="mt-4 text-lg text-neutral-600">
-          Transform your career prospects with our AI-powered resume builder
+          Choose the perfect plan to transform your resume and stand out from the crowd
         </p>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
