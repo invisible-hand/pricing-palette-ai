@@ -1,46 +1,43 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 
 const Index = () => {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   const plans = [
     {
-      name: "Basic",
-      price: isAnnual ? 99 : 12,
-      description: "Perfect for students and fresh graduates",
+      name: "Free",
+      price: 0,
+      description: "Perfect for getting started with AI-powered resumes",
       features: [
         "AI-powered resume analysis",
         "Basic template library",
-        "Grammar & spell check",
-        "24/7 email support",
+        "Advanced AI suggestions",
+        "Email support",
       ],
       popular: false,
     },
     {
-      name: "Professional",
-      price: isAnnual ? 199 : 24,
-      description: "Ideal for professionals seeking career growth",
+      name: "Monthly",
+      price: 19,
+      description: "Ideal for job seekers who want the full experience",
       features: [
-        "Everything in Basic",
-        "Advanced AI suggestions",
+        "Everything in Free",
         "Premium templates",
-        "LinkedIn profile optimization",
+        "Support for multiple resumes",
         "Priority support",
+        "LinkedIn profile optimization",
       ],
       popular: true,
     },
     {
-      name: "Enterprise",
-      price: isAnnual ? 299 : 36,
-      description: "For executives and career changers",
+      name: "Lifetime",
+      price: 99,
+      description: "One-time payment for unlimited access forever",
       features: [
-        "Everything in Professional",
-        "Personal career coach",
-        "Custom branding",
-        "Interview preparation",
-        "Unlimited revisions",
+        "Everything in Monthly plan",
+        "Lifetime updates",
+        "Early access to new features",
+        "Personal career coach consultation",
+        "Custom branding options",
       ],
       popular: false,
     },
@@ -64,28 +61,11 @@ const Index = () => {
           Pricing Plans
         </span>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
-          Elevate Your Career with AI-Powered Resumes
+          Choose Your Resume Enhancement Plan
         </h1>
         <p className="mt-4 text-lg text-neutral-600">
-          Choose the perfect plan to transform your resume and stand out from the crowd
+          Transform your career prospects with our AI-powered resume builder
         </p>
-
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <span className={`text-sm ${!isAnnual ? "text-neutral-900" : "text-neutral-500"}`}>Monthly</span>
-          <button
-            onClick={() => setIsAnnual(!isAnnual)}
-            className="relative inline-flex h-6 w-11 items-center rounded-full bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          >
-            <span
-              className={`${
-                isAnnual ? "translate-x-6" : "translate-x-1"
-              } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-            />
-          </button>
-          <span className={`text-sm ${isAnnual ? "text-neutral-900" : "text-neutral-500"}`}>
-            Annual <span className="text-primary">(-20%)</span>
-          </span>
-        </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
@@ -107,7 +87,8 @@ const Index = () => {
                 <p className="mt-2 text-sm text-neutral-600">{plan.description}</p>
                 <div className="mt-6">
                   <span className="text-4xl font-bold text-neutral-900">${plan.price}</span>
-                  <span className="text-neutral-600">/{isAnnual ? "year" : "month"}</span>
+                  {plan.name === "Monthly" && <span className="text-neutral-600">/month</span>}
+                  {plan.name === "Lifetime" && <span className="text-neutral-600"> one-time</span>}
                 </div>
               </div>
               <ul className="mt-8 space-y-4">
@@ -125,7 +106,7 @@ const Index = () => {
                     : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200"
                 }`}
               >
-                Get Started
+                {plan.price === 0 ? "Get Started Free" : "Get Started"}
               </button>
             </motion.div>
           ))}
@@ -138,7 +119,7 @@ const Index = () => {
               <h2 className="ml-2 text-xl font-semibold text-neutral-900">100% Satisfaction Guarantee</h2>
             </div>
             <p className="mt-4 text-center text-neutral-600">
-              Try our service risk-free for 30 days. If you're not completely satisfied, we'll refund your payment.
+              Try our service risk-free for 30 days. If you're not completely satisfied with our Monthly plan, we'll refund your payment.
             </p>
           </div>
         </div>
