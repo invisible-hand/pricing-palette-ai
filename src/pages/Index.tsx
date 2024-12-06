@@ -24,7 +24,6 @@ const Index = () => {
         "Premium templates",
         "Support for multiple resumes",
         "Priority support",
-        "LinkedIn profile optimization",
       ],
       popular: true,
     },
